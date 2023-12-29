@@ -1,21 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dongsam37</title>
 </head>
 <body>
-    <h1>2023년 37기 동기회비 수입및 지출보고</h1>
-    <h2>특이사항</h2>
-    <ul>
-        <li>본 페이지는 포탈 사이트에서 주기적으로 DATA를 수집하므로 일주일만 게시함.</li>
-        <li>4분기 모임의 내용이 아직 정리되지 않았슴.</li>
-        <ul>
-            <li> 4분기모임이후 정리된 내용은 다시 한번 계시 예정입니다.</li>
-        </ul>
-        <li>24년도 연회비 및 25년도 연회비는 계산이 되지 않습니다.  순수23년 년 회비만 정리하였습니다.</li>
-        <img src="./네이버까마귀 20231215 144520.jpg" alt="">
-    </ul>
+    <h5>귀하가 우리 동기인지를 확인합니다.</h5>
+    <h5>우리총무님 이름을 입력하시고 제출 버튼을 누르십시오.</h5>
+    <input id="inputText" type="text" value="">
+    <button  type="button" onclick="changeValue(this)" btname="01_About OnePart">제출</button>
+
+    <div id="myDiv" data-include-path=""></div>
+
+    <script>
+    function changeValue(button) {
+      // Get the div element by its id
+      // location.reload(true);
+      var inputText = document.getElementById("inputText");
+      var myDiv = document.getElementById("myDiv");
+      // Set the div's innerHTML to the clicked button's btname attribute value
+      //myDiv.innerHTML = button.getAttribute("btname");
+      if (inputText.value == "추성희"){
+        myDiv.setAttribute("data-include-path", "ds37_insert.html");
+        replace_doc();
+      }
+      else{
+        myDiv.innerHTML = "땡"
+      }
+
+    };
+
+    function replace_doc() {
+      var allElements = document.getElementsByTagName("div");
+      Array.prototype.forEach.call(allElements, function(el) {
+        var includePath = el.dataset.includePath;
+        if (includePath) {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              el.outerHTML = '<div id="myDiv" data-include-path="">' + this.responseText + '</div>';
+            }
+          };
+          xhttp.open("GET", includePath, true);
+          xhttp.send();
+        }
+      });
+    };
+    </script>
 </body>
 </html>
