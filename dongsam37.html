@@ -8,45 +8,50 @@
 <body>
     <h5>귀하가 우리 동기인지를 확인합니다.</h5>
     <h5>우리총무님 이름을 입력하시고 제출 버튼을 누르십시오.</h5>
-    <input id="inputText" type="text" value="">
+    <input id="inputText" type="text" value="" onclick="change1value(this)">
     <button  type="button" onclick="changeValue(this)" btname="01_About OnePart">제출</button>
 
     <div id="myDiv" data-include-path=""></div>
 
     <script>
-    function changeValue(button) {
-      // Get the div element by its id
-      // location.reload(true);
-      var inputText = document.getElementById("inputText");
-      var myDiv = document.getElementById("myDiv");
-      // Set the div's innerHTML to the clicked button's btname attribute value
-      //myDiv.innerHTML = button.getAttribute("btname");
-      if (inputText.value == "추성희"){
-        myDiv.setAttribute("data-include-path", "ds37_insert.html");
-        replace_doc();
-      }
-      else{
-        myDiv.innerHTML = "땡"
+      function change1value(input){
+        var myDiv = document.getElementById("myDiv");
+        myDiv.innerHTML = ""
       }
 
-    };
-
-    function replace_doc() {
-      var allElements = document.getElementsByTagName("div");
-      Array.prototype.forEach.call(allElements, function(el) {
-        var includePath = el.dataset.includePath;
-        if (includePath) {
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-              el.outerHTML = '<div id="myDiv" data-include-path="">' + this.responseText + '</div>';
-            }
-          };
-          xhttp.open("GET", includePath, true);
-          xhttp.send();
+      function changeValue(button) {
+        // Get the div element by its id
+        // location.reload(true);
+        var inputText = document.getElementById("inputText");
+        var myDiv = document.getElementById("myDiv");
+        // Set the div's innerHTML to the clicked button's btname attribute value
+        //myDiv.innerHTML = button.getAttribute("btname");
+        if (inputText.value == "추성희"){
+          myDiv.setAttribute("data-include-path", "ds37_insert.html");
+          replace_doc();
         }
-      });
-    };
+        else{
+          myDiv.innerHTML = "땡"
+        }
+
+      };
+
+      function replace_doc() {
+        var allElements = document.getElementsByTagName("div");
+        Array.prototype.forEach.call(allElements, function(el) {
+          var includePath = el.dataset.includePath;
+          if (includePath) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                el.outerHTML = '<div id="myDiv" data-include-path="">' + this.responseText + '</div>';
+              }
+            };
+            xhttp.open("GET", includePath, true);
+            xhttp.send();
+          }
+        });
+      };
     </script>
 </body>
 </html>
