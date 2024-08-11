@@ -1,0 +1,72 @@
+body {
+   font-family: "고딕";
+   font-size: 11pt;
+   font-weight: bold;
+   padding: 10px;
+}
+
+.WordSection1 {
+   display: block;
+   /*
+    width : 500px  ;
+    */
+   border: 1px solid black;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+
+   margin-top: 5px;
+   margin-bottom: 5px; 
+
+   box-shadow: 0 0 10px rgb(68, 71, 71);
+}
+
+#Master {
+   margin-top: 20px;
+}
+
+li{
+   color:rgb(84, 85, 85);
+   font-size: 18px;
+   font-weight: bolder;
+}
+
+
+ol>li {
+   /*
+    border : 3px solid greenyellow ;
+    */
+   color: green;
+   font-size: 20px;
+   font-weight: bolder;
+   text-decoration-line: underline;
+}
+
+#emp {
+   color: red ;
+}
+.emp {
+  color:green ;
+  font-weight: bold;
+}
+video{
+  border: 1px solid black;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  box-shadow: 0 0 5px rgb(68, 71, 71);
+}
+img{
+   border: 1px solid black;
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   box-shadow: 0 0 2px rgb(68, 71, 71);
+}
+
+.emp01{
+   color:rgb(17, 143, 201)
+}
